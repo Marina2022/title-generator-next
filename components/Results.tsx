@@ -1,16 +1,25 @@
 import GeneratedItem from "@/components/GeneratedItem/GeneratedItem.jsx";
-import {useEffect, useState} from "react";
+import {MutableRefObject, useEffect, useState} from "react";
 import SavedIdeas from "@/components/SavedIdeas/SavedIdeas.jsx";
 import Button from "@/components/ui/form/Button.jsx";
 import {ImSpinner2} from "react-icons/im";
+import {Formdata} from '@/types';
 
-const Results = ({results, scrollRef, lastRequest, setResults, setError}) => {
+type Props = {
+  results: string[],
+  scrollRef: MutableRefObject<HTMLDivElement | null>,
+  lastRequest: Formdata | null ,
+  setResults: (results: string[]) => void,
+  setError: (error: string |  null) => void
+}
+
+const Results = ({results, scrollRef, lastRequest, setResults, setError}: Props ) => {
 
   const [isGenerateMoreLoading, setIsGenerateMoreLoading] = useState(false)
 
   const [favorites, setFavorites] = useState(() => {
-    const favs = JSON.parse(localStorage.getItem('favs'))
-    return favs || []
+    const str = localStorage.getItem('favs')
+    return str ? JSON.parse(str) : []
   })
 
   useEffect(() => {
@@ -33,7 +42,7 @@ const Results = ({results, scrollRef, lastRequest, setResults, setError}) => {
         if (res.result) {
           setResults(res.result)
 
-          if (scrollRef.current) scrollRef.current.scrollIntoView({top: '500px', behavior: 'smooth'})
+          if (scrollRef.current) scrollRef.current.scrollIntoView({behavior: 'smooth'})
 
         } else {
           setError(res.error)
@@ -41,7 +50,7 @@ const Results = ({results, scrollRef, lastRequest, setResults, setError}) => {
             setError(null)
           }, 7000)
         }
-      } catch (err) {
+      } catch (err:any) {
         console.log(err.message)
         setTimeout(() => {
           setError(null)
