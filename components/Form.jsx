@@ -9,7 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/form/Select.jsx"
+} from "@/components/ui/form/Select.tsx"
 
 import {SIZE_SELECT_VALUES, TERRAIN_SELECT_VALUES} from "@/consts/formData.js";
 
