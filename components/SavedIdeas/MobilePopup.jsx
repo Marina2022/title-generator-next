@@ -1,4 +1,4 @@
-import {SheetContent, SheetHeader,} from "@/components/SavedIdeas/sheet.jsx"
+import {SheetContent, SheetHeader,} from "@/components/SavedIdeas/sheet.tsx"
 
 const MobilePopup = ({children}) => {
   return (

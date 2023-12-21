@@ -4,7 +4,7 @@ import PopupInner from "@/components/SavedIdeas/PopupInner.jsx";
 import Button from "@/components/ui/form/Button.jsx";
 import DeleteAllPopup from "@/components/SavedIdeas/DeleteAllPopup.jsx";
 
-import {Sheet, SheetTrigger} from "@/components/SavedIdeas/sheet.jsx"
+import {Sheet, SheetTrigger} from "@/components/SavedIdeas/sheet.tsx"
 import MobilePopup from "@/components/SavedIdeas/MobilePopup.jsx";
 
 const SavedIdeas = ({favorites, setFavorites}) => {
