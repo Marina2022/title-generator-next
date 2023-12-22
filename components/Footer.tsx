@@ -1,4 +1,4 @@
-import Socials from "@/components/ui/Socials.tsx";
+import Socials from "@/components/ui/Socials";
 
 const Footer = () => {
   return (
