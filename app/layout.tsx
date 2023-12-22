@@ -5,9 +5,9 @@ import React from 'react';
 export const metadata: Metadata = {
   title: 'Title Generator',
   description: 'A set of tools for creating catchy titles for blogs, books and videos.',
-  openGraph: {
-    images: 'https://ibb.co/NKvkQmz',
-  },
+  // openGraph: {
+  //   images: 'https://ibb.co/NKvkQmz',
+  // },
 }
 
 export default function RootLayout({
