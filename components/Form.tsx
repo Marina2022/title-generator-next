@@ -1,6 +1,6 @@
-import Button from "./ui/form/Button.tsx";
-import Input from "./ui/form/Input.tsx";
-import Textarea from "./ui/form/Textarea.tsx";
+import Button from "./ui/form/Button";
+import Input from "./ui/form/Input";
+import Textarea from "./ui/form/Textarea";
 import {ImSpinner2} from "react-icons/im";
 
 import {
@@ -9,11 +9,27 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/form/Select.tsx"
+} from "@/components/ui/form/Select"
 
 import {SIZE_SELECT_VALUES, TERRAIN_SELECT_VALUES} from "@/consts/formData.js";
+import {FormEventHandler, MouseEventHandler} from 'react';
 
-const Form = ({onGenerateClick, ...rest}) => {
+type Props = {
+  onGenerateClick: () => void,
+  selectSize: string,
+  setSelectSize: (param: string) => void,
+  selectTerrain: string,
+  setSelectTerrain: (param: string) => void,
+  keywords: string,
+  setKeywords: (param: string) => void,
+  description: string,
+  setDescription: (param: string) => void,
+  error: string | null,
+  isLoading: boolean,
+  setResults: (param: string[]) => void,
+}
+
+const Form = ({onGenerateClick, ...rest}: Props) => {
 
   const {
     selectSize,
@@ -27,7 +43,7 @@ const Form = ({onGenerateClick, ...rest}) => {
     error, isLoading
   } = rest
 
-  const handleSubmit = (e) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
     onGenerateClick()
   }
@@ -59,13 +75,12 @@ const Form = ({onGenerateClick, ...rest}) => {
               </SelectContent>
             </Select>
 
-            <Input value={keywords} className="w-full max-w-[300px]" type="text" placeholder="Inspiration Keywords"
+            <Input value={keywords} className="w-full max-w-[300px]" placeholder="Inspiration Keywords"
                    onChange={(e) => setKeywords(e.target.value)}/>
           </div>
           <div className="w-1/2 max-md:w-full max-w-[300px]">
             <Textarea value={description} onChange={(e) => setDescription(e.target.value)} className="w-full h-full"
                       placeholder="Short Description">
-              sdf
             </Textarea>
           </div>
         </div>
@@ -73,9 +88,10 @@ const Form = ({onGenerateClick, ...rest}) => {
           <div className="flex-center gap-4">
             {
               isLoading ? (
-                <>
-                  <div className="animate-spin"><ImSpinner2/></div><span>Generating...</span>
-                </>
+                  <>
+                    <div className="animate-spin"><ImSpinner2/></div>
+                    <span>Generating...</span>
+                  </>
                 )
                 : <span>Generate</span>
             }

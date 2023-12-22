@@ -1,10 +1,11 @@
-import {ChangeEventHandler} from "react";
+import React, {ChangeEventHandler} from "react";
 
 type TextareaProps = {
   className: string,
   placeholder: string,
   onChange: ChangeEventHandler<HTMLTextAreaElement>,
-  value: string
+  value: string,
+  children?: React.ReactNode
 }
 
 const Textarea = ({className, placeholder, onChange, value}:TextareaProps) => {
