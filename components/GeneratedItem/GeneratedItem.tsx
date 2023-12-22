@@ -1,8 +1,15 @@
-import CopyButton from "@/components/GeneratedItem/CopyButton.jsx";
-import StarButton from "@/components/GeneratedItem/StarButton.jsx";
-import RemoveButton from "@/components/GeneratedItem/RemoveButton.jsx";
+import CopyButton from "@/components/GeneratedItem/CopyButton";
+import StarButton from "@/components/GeneratedItem/StarButton";
+import RemoveButton from "@/components/GeneratedItem/RemoveButton";
 
-const GeneratedItem = ({item, setFavorites, favorites, inPopup = false}) => {
+type Props = {
+  item: string,
+  favorites:string[],
+  setFavorites: (favorites:string[])=>void,
+  inPopup?: boolean
+}
+
+const GeneratedItem = ({item, setFavorites, favorites, inPopup = false} :Props) => {
 
   const toggleFavorites = () => {
     if (favorites.includes(item)) {

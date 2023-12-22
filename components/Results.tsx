@@ -1,9 +1,9 @@
-import GeneratedItem from "@/components/GeneratedItem/GeneratedItem.jsx";
+import GeneratedItem from "@/components/GeneratedItem/GeneratedItem";
 import {MutableRefObject, useEffect, useState} from "react";
-import SavedIdeas from "@/components/SavedIdeas/SavedIdeas.jsx";
-import Button from "@/components/ui/form/Button.jsx";
+import SavedIdeas from "@/components/SavedIdeas/SavedIdeas";
 import {ImSpinner2} from "react-icons/im";
 import {Formdata} from '@/types';
+import Button from '@/components/ui/form/Button';
 
 type Props = {
   results: string[],
@@ -17,7 +17,7 @@ const Results = ({results, scrollRef, lastRequest, setResults, setError}: Props 
 
   const [isGenerateMoreLoading, setIsGenerateMoreLoading] = useState(false)
 
-  const [favorites, setFavorites] = useState(() => {
+  const [favorites, setFavorites] = useState<string[]>(() => {
     const str = localStorage.getItem('favs')
     return str ? JSON.parse(str) : []
   })

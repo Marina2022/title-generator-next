@@ -1,10 +1,10 @@
 'use client'
 
-import Top from "@/components/Top/Top.jsx";
+import Top from "@/components/Top/Top";
 import {useRef, useState} from "react";
-import About from "@/components/About.jsx";
-import Footer from "@/components/Footer.jsx";
-import ErrorNotice from "@/components/ErrorNotice.jsx";
+import About from "@/components/About";
+import Footer from "@/components/Footer";
+import ErrorNotice from "@/components/ErrorNotice";
 import {Formdata} from '@/types';
 import Results from '@/components/Results';
 

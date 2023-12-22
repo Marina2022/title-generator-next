@@ -1,4 +1,4 @@
-import Logo from "../ui/Logo.tsx";
+import Logo from "../ui/Logo";
 
 const Header = () => {
   return (

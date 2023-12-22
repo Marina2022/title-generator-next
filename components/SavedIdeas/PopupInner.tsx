@@ -1,8 +1,14 @@
-import GeneratedItem from "@/components/GeneratedItem/GeneratedItem.jsx";
+import GeneratedItem from "@/components/GeneratedItem/GeneratedItem";
 import {useEffect, useRef} from "react";
 
-const PopupInner = ({className, favorites, setFavorites}) => {
-  const ref = useRef()
+type Props = {
+  favorites:string[],
+  setFavorites: (favorites:string[])=>void,
+  className?: string
+}
+
+const PopupInner = ({className, favorites, setFavorites}:Props) => {
+  const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (window.innerWidth >= 768) return
     if (ref.current) {

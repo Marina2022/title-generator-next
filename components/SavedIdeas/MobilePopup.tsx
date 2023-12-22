@@ -1,6 +1,11 @@
-import {SheetContent, SheetHeader,} from "@/components/SavedIdeas/sheet.tsx"
+import {SheetContent, SheetHeader,} from "@/components/SavedIdeas/sheet"
+import React from 'react';
 
-const MobilePopup = ({children}) => {
+type Props = {
+  children: React.ReactNode
+}
+
+const MobilePopup = ({children}:Props) => {
   return (
     <SheetContent className="w-full h-[90%] bg-white border-t-[2px] border-primary ">
       <SheetHeader className="block text-[#343D43]">

@@ -1,13 +1,18 @@
 import {useState} from "react";
-import DesktopPopup from "@/components/SavedIdeas/DesktopPopup.jsx";
-import PopupInner from "@/components/SavedIdeas/PopupInner.jsx";
-import Button from "@/components/ui/form/Button.jsx";
-import DeleteAllPopup from "@/components/SavedIdeas/DeleteAllPopup.jsx";
+import DesktopPopup from "@/components/SavedIdeas/DesktopPopup";
+import PopupInner from "@/components/SavedIdeas/PopupInner";
+import Button from "@/components/ui/form/Button";
+import DeleteAllPopup from "@/components/SavedIdeas/DeleteAllPopup";
 
-import {Sheet, SheetTrigger} from "@/components/SavedIdeas/sheet.tsx"
-import MobilePopup from "@/components/SavedIdeas/MobilePopup.jsx";
+import {Sheet, SheetTrigger} from "@/components/SavedIdeas/sheet"
+import MobilePopup from "@/components/SavedIdeas/MobilePopup";
 
-const SavedIdeas = ({favorites, setFavorites}) => {
+type Props = {
+  favorites:string[],
+  setFavorites: (favorites:string[])=>void
+}
+
+const SavedIdeas = ({favorites, setFavorites}:Props) => {
 
   const [isOpen, setIsOpen] = useState(false)
   const [isDeleteAllPopupOpen, setIsDeleteAllPopupOpen] = useState(false)

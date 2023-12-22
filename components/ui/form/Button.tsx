@@ -1,4 +1,15 @@
-const Button = ({className, children, type = "button", variant = "primary", onClick, disabled = false}) => {
+import React, {MouseEventHandler} from 'react';
+
+type Props = {
+  className?: string,
+  type?: "button" | "submit" | "reset" | undefined,
+  variant?: string,
+  onClick?: MouseEventHandler<HTMLButtonElement>,
+  disabled?: boolean,
+  children?: React.ReactNode
+}
+
+const Button = ({className, children, type = "button", variant = "primary", onClick, disabled = false} : Props) => {
   return (
     <button
       onClick={onClick}

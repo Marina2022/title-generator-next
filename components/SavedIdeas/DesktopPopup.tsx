@@ -1,8 +1,14 @@
-import {useCallback, useEffect} from "react";
+import {useCallback, useEffect, ReactNode} from "react";
 
-const DesktopPopup = ({children, setIsOpen, isDeleteAllPopupOpen}) => {
+type Props = {
+  children: ReactNode,
+  isDeleteAllPopupOpen: boolean,
+  setIsOpen: (param: boolean)=>void
+}
 
-  const escHandler = useCallback((e) => {
+const DesktopPopup = ({children, setIsOpen, isDeleteAllPopupOpen}:Props) => {
+
+  const escHandler = useCallback((e:KeyboardEvent) => {
     if (e.key === 'Escape') {
       setIsOpen(false)
     }

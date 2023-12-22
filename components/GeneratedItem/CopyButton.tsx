@@ -1,6 +1,10 @@
 import {useEffect, useState} from "react";
 
-const CopyButton = ({value}) => {
+type Props = {
+  value: string
+}
+
+const CopyButton = ({value}:Props) => {
 
   const [copyMessageIsVisible, setCopyMessageIsVisible] = useState(false)
 

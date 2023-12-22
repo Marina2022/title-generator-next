@@ -1,4 +1,12 @@
-const StarButton = ({onClick, liked}) => {
+import {MouseEventHandler} from 'react';
+
+type Props = {
+  onClick: MouseEventHandler<HTMLButtonElement>,
+  liked: boolean
+}
+
+
+const StarButton = ({onClick, liked} : Props) => {
   return (
     <button onClick={onClick}
             className="w-[36px] h-[36px] flex-center bg-white rounded-md group md:hover:border-primary md:hover:border transition transition-color duration-100 little-btn-shadow z-30 relative">

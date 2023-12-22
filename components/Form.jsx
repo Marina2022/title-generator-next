@@ -1,6 +1,6 @@
-import Button from "./ui/form/Button.jsx";
-import Input from "./ui/form/Input.jsx";
-import Textarea from "./ui/form/Textarea.jsx";
+import Button from "./ui/form/Button.tsx";
+import Input from "./ui/form/Input.tsx";
+import Textarea from "./ui/form/Textarea.tsx";
 import {ImSpinner2} from "react-icons/im";
 
 import {

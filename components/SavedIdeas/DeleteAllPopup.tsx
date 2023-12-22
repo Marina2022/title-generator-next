@@ -1,9 +1,14 @@
-import Button from "@/components/ui/form/Button.jsx";
+import Button from "@/components/ui/form/Button";
 import {useCallback, useEffect} from "react";
 
-const DeleteAllPopup = ({setIsDeleteAllPopupOpen, setFavorites}) => {
+type Props = {
+  setIsDeleteAllPopupOpen: (param:boolean)=>void,
+  setFavorites: (param:string[])=>void
+}
 
-  const escHandler = useCallback((e) => {
+const DeleteAllPopup = ({setIsDeleteAllPopupOpen, setFavorites}:Props) => {
+
+  const escHandler = useCallback((e:KeyboardEvent) => {
     if (e.key === 'Escape') {
       setIsDeleteAllPopupOpen(false)
     }
