@@ -12,6 +12,7 @@ type Props = {
 const GeneratedItem = ({item, setFavorites, favorites, inPopup = false} :Props) => {
 
   const toggleFavorites = () => {
+
     if (favorites.includes(item)) {
       const newFavs = favorites.filter(fav => fav !== item)
       setFavorites(newFavs)

@@ -32,7 +32,7 @@ const Results = ({results, scrollRef, lastRequest, setResults, setError}: Props)
 
             setIsGenerateMoreLoading(true)
             try {
-                const res = await getTitles(lastRequest)
+                const res = await getTitles(lastRequest, results)
 
                 if (res.success) {
                     setResults((prev) => [...prev, ...res.result]);
@@ -68,7 +68,7 @@ const Results = ({results, scrollRef, lastRequest, setResults, setError}: Props)
                 <ul className="flex flex-col gap-4 mb-[48px]">
                     {
                         results.map((item, index) => <GeneratedItem
-                            key={index}
+                            key={item}
                             item={item}
                             setFavorites={setFavorites}
                             favorites={favorites}/>)
