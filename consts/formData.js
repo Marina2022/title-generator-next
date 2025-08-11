@@ -1,17 +1,18 @@
 export const SIZE_SELECT_VALUES = [
-  'Small Town',
-  'Medium Town',
-  'Large City',
-  'Metropolis',
-  'Capital City',
+  'Formal',
+  'Conversational',
+  'Provocative',
+  'Humorous',
+  'Mysterious',
+  'Emotional',
 ]
 
 
 export const TERRAIN_SELECT_VALUES = [
-  'Coastal',
-  'Riverine',
-  'Mountainous',
-  'Forested',
-  'Desert',
-  'Plains',
+  'Blog Post',
+  'Video Review',
+  'Podcast',
+  'Infographic',
+  'Case Study',
+  'Interview',
 ]

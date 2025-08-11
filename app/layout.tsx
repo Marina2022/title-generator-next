@@ -3,6 +3,7 @@ import './globals.scss'
 import React from 'react';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://yourdomain.com'),
   title: 'Title Generator',
   description: 'A set of tools for creating catchy titles for blogs, books and videos.',
   openGraph: {

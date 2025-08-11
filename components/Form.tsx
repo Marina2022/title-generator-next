@@ -55,7 +55,7 @@ const Form = ({onGenerateClick, ...rest}: Props) => {
           <div className="w-1/2 max-md:w-full flex gap-5 flex-col items-center max-w-[300px]">
             <Select value={selectSize} onValueChange={(value) => setSelectSize(value)}>
               <SelectTrigger className="w-full max-w-[300px]">
-                <SelectValue placeholder="Size or Significance"/>
+                <SelectValue placeholder="Select Headline Style"/>
               </SelectTrigger>
               <SelectContent className="bg-white">
                 {
@@ -65,7 +65,7 @@ const Form = ({onGenerateClick, ...rest}: Props) => {
             </Select>
             <Select value={selectTerrain} onValueChange={(value) => setSelectTerrain(value)}>
               <SelectTrigger className="w-full max-w-[300px]">
-                <SelectValue placeholder="Terrain Type"/>
+                <SelectValue placeholder="Content Format"/>
               </SelectTrigger>
               <SelectContent className="bg-white">
                 {

@@ -1,6 +1,6 @@
-export type Formdata = {
-  size: string,
+export type MyData = {
+  headlineStyle: string,
+  contentFormat: string,
   keywords: string,
-  terrain: string,
   description: string
 }

@@ -5,8 +5,9 @@ import {useRef, useState} from "react";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import ErrorNotice from "@/components/ErrorNotice";
-import {Formdata} from '@/types';
+import {MyData} from '@/types';
 import Results from '@/components/Results';
+import {getTitles} from "@/serverActions/getTitles";
 
 const MainPage = () => {
 
@@ -18,7 +19,7 @@ const MainPage = () => {
   const [keywords, setKeywords] = useState('')
   const [description, setDescription] = useState('')
 
-  const [lastRequest, setLastRequest] = useState<Formdata | null>(null)
+  const [lastRequest, setLastRequest] = useState<MyData | null>(null)
 
   const formProps = {
     selectSize, setSelectSize, selectTerrain, setSelectTerrain, keywords, setKeywords, description, setDescription
@@ -28,36 +29,43 @@ const MainPage = () => {
 
   const generateHandle: () => Promise<void> = async () => {
 
-    const formData: Formdata = {
-      size: selectSize,
+    const myData: MyData = {
+      headlineStyle: selectSize,
+      contentFormat: selectTerrain,
       keywords: keywords.replaceAll(' ', ', '),
-      terrain: selectTerrain,
       description: description
     }
 
+
+
     setIsLoading(true)
     try {
-      const resp = await fetch('https://namegenerator.com/ai/generate/city-names',
-        {
-          method: "post",
-          body: JSON.stringify(formData)
-        }
-      )
+      // const resp = await fetch('https://namegenerator.com/ai/generate/city-names',
+      //   {
+      //     method: "post",
+      //     body: JSON.stringify(formData)
+      //   }
+      // )
+      // const res = await resp.json()
 
-      const res = await resp.json()
-      if (res.result) {
+      const res = await getTitles(myData)
+
+
+      if (res.success && res.result.length > 0 && res.result.length < 10000) {
         setResults(res.result)
         if (scrollRef.current) scrollRef.current.scrollIntoView({behavior: 'smooth'})
         setSelectSize('')
         setSelectTerrain('')
         setKeywords('')
         setDescription('')
-        setLastRequest(formData)
+        setLastRequest(myData)
       } else {
-        setError(res.error)
-        setTimeout(() => {
-          setError(null)
-        }, 7000)
+        if (!res.success) {
+          setError(res.error)
+          setTimeout(() => {
+            setError(null)
+          }, 7000)
+        }
       }
     } catch (err: any) {
       console.log(err.message)
