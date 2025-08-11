@@ -14,7 +14,7 @@ interface OpenAIError {
 }
 
 export const getTitles = async (
-    myData: MyData | null, titles: string[] | undefined
+    myData: MyData | null, titles?: string[]
 ): Promise<
     | { success: true; result: string[] }
     | { success: false; error: string }
@@ -59,10 +59,6 @@ export const getTitles = async (
         const raw = completion.choices[0].message.content
 
         if (raw) {
-            // const titles = raw
-            //     .split(/\d+\.\s+/)       // Разбиваем по числам с точкой (1. , 2. , ...)
-            //     .filter(Boolean)         // Убираем пустую строку в начале
-            //     .map(str => str.trim().replace(/^"|"$/g, '')); // Убираем кавычки по краям
 
             const titles = raw
                 .split('\n')
